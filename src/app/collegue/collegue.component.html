@@ -1,9 +1,45 @@
+<div class="container">
+  <div class="card" style="width: 36rem">
+    <h2>Bienvenue Rob Dupont !</h2>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-sm card-text">Matricule :</div>
+        <div class="col-sm card-text">{{col.matricule}}</div>
+      </div>
+      <div class="row">
+        <div class="col-sm card-text">Nom :</div>
+        <div class="col-sm card-text">{{col.nom | uppercase}}</div>
+      </div>
+      <div class="row">
+        <div class="col-sm card-text">Prénoms :</div>
+        <div class="col-sm card-text">{{col.prenoms}}</div>
+      </div>
+      <div class="row">
+        <div class="col-sm card-text">Date de naissance :</div>
+        <div class="col-sm card-text">{{col.dateDeNaissance | date:'longDate'}}</div>
+      </div>
+      <div class="row">
+        <div class="col-sm card-text">E-mail :</div>
+        <div *ngIf="modeAffichage" class="col-sm card-text">{{col.email}}</div>
+        <input *ngIf="!modeAffichage" class="col-sm form-control form-control-sm"  >
+      </div>
+      <div class="row">
+        <div class="col-sm card-text">Photo Url :</div>
+        <div *ngIf="modeAffichage" class="col-sm card-text">{{col.photoUrl }}</div>
+        <input *ngIf="!modeAffichage" class="col form-control form-control-sm" >
+      </div>
 
-<p> Matricule        : {{ col.matricule}}</p>
-<p>Nom               : {{col.nom}}</p>
-<p>Prénoms           : {{col.prenoms}} </p>
-<p>Date de naissance : {{col.dateDeNaissance}}</p>
-<p>Email             : {{ col.email}}</p>
-
-<a href="">Créer un nouveau collègue</a>
-<button (click)="ModifCollegues()">Modifier</button>
+      <div class="row">
+        <div class="">
+          <button *ngIf="modeAffichage" type="button" class="btn btn-link" (click)="creerCollegue()">Créer un nouveau
+            collègue</button>
+        </div>
+        <div class="col-sm">
+          <button *ngIf="modeAffichage" type="button" class="btn btn-info" (click)="modifierCollegue()">Modifier</button>
+          <button *ngIf="!modeAffichage" type="button" class="btn btn-info" (click)="validerCollegue()">Valider</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>

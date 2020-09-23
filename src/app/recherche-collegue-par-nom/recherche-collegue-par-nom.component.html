@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="card" style="width: 36rem">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm card-text">Recherche par nom </div>
+                <input class="col form-control form-control-sm">
+                <button type="button" class="btn btn-info" (click)="afficherMatricule()">Rechercher</button>
+            </div>
+        </div>
+        <div *ngIf="affichageListe" class="row">
+            <ul>
+                <li *ngFor="let obj of matricules">{{obj.matricule}} </li>
+            </ul>
+        </div>
+    </div>
+</div>
