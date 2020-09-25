@@ -1,11 +1,16 @@
-<div class="wrapper">
+<h1 class="text-center">Application gestion des collègues</h1>
 
-    <div class="overlay">
-        <app-collegue [col]="collegueExemple"></app-collegue>
+<main>
+
+    <div class="row">
+        <div class="col-12 col-lg-6">
+            <app-recherche-collegue-par-nom></app-recherche-collegue-par-nom>
+        </div>
+        <div class="col-12col-lg-6">
+            <app-collegue [col]="collegueExemple"></app-collegue>
+        </div>
     </div>
 
-    <div class="overlay">
-        <app-recherche-collegue-par-nom class="col-sm"></app-recherche-collegue-par-nom>
-    </div>
 
-</div>
+
+</main>

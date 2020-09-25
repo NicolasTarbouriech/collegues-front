@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Collegue } from '../models/Collegues';
+import { DataService } from './../services/data.service';
 
 @Component({
   selector: 'app-collegue',
@@ -11,24 +12,27 @@ export class CollegueComponent implements OnInit {
 
   modeAffichage = true;
   modeCreation = false;
-  constructor() { }
+  
+  constructor(private dataSrv: DataService) { }
 
   ngOnInit(): void {
+    this.col = this.dataSrv.recupererCollegueCourant();
   }
 
-  creerCollegue() {
-    console.log('Création collègue');
+  creerColl() {
+    console.log('Créer un nouveau collègue');
     this.modeCreation = true;
   }
 
-  modifierCollegue(): void {
+  modifierColl() {
     this.modeAffichage = false;
   }
 
-
-  validerCollegue(): void {
+  validerColl() {
     this.modeAffichage = true;
   }
+
+
 
 
 

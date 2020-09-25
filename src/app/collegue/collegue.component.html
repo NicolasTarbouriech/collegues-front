@@ -1,6 +1,6 @@
 <div class="container">
   <div class="card" style="width: 36rem">
-    <h2>Bienvenue Rob Dupont !</h2>
+    <h2>Caractéristiques collègue</h2>
     <div class="card-body">
       <div class="row">
         <div class="col-sm card-text">Matricule :</div>
@@ -31,12 +31,12 @@
 
       <div class="row">
         <div class="">
-          <button *ngIf="modeAffichage" type="button" class="btn btn-link" (click)="creerCollegue()">Créer un nouveau
+          <button *ngIf="modeAffichage" type="button" class="btn btn-link" (click)="creerColl()">Créer un nouveau
             collègue</button>
         </div>
         <div class="col-sm">
-          <button *ngIf="modeAffichage" type="button" class="btn btn-info" (click)="modifierCollegue()">Modifier</button>
-          <button *ngIf="!modeAffichage" type="button" class="btn btn-info" (click)="validerCollegue()">Valider</button>
+          <button *ngIf="modeAffichage" type="button" class="btn btn-info" (click)="modifierColl()">Modifier</button>
+          <button *ngIf="!modeAffichage" type="button" class="btn btn-info" (click)="validerColl()">Valider</button>
         </div>
       </div>
       
