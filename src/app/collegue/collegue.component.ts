@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Collegue } from '../models/Collegues';
 import { DataService } from './../services/data.service';
 
@@ -16,8 +16,10 @@ export class CollegueComponent implements OnInit {
   constructor(private dataSrv: DataService) { }
 
   ngOnInit(): void {
-    this.col = this.dataSrv.recupererCollegueCourant();
+    this.dataSrv.recupererCollegueCourant()
+      .subscribe(colSelect => this.col = colSelect);
   }
+
 
   creerColl() {
     console.log('Créer un nouveau collègue');

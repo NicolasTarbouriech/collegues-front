@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 // récuperation de l'objet collegueMock
 import { c1, c2} from './mock/collegues.mock';
-
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-root',

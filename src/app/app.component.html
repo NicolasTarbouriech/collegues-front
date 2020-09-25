@@ -1,16 +1,15 @@
-<h1 class="text-center">Application gestion des collègues</h1>
-
-<main>
-
+<nav class="navbar navbar-expand-lg bg-info">
+    <span class="navbar-text">
+      Bienvenue dans l'annuaire de l'entreprise des Looney !
+    </span>
+  </nav>
+  
+  <div class="row"><br></div>
+  
+  <main class="container-fluid">
     <div class="row">
-        <div class="col-12 col-lg-6">
-            <app-recherche-collegue-par-nom></app-recherche-collegue-par-nom>
-        </div>
-        <div class="col-12col-lg-6">
-            <app-collegue [col]="collegueExemple"></app-collegue>
-        </div>
+      <app-recherche-collegue-par-nom class="col-sm"></app-recherche-collegue-par-nom>
+      <app-collegue class="col-sm-7"></app-collegue>
     </div>
-
-
-
-</main>
+  </main>
+  

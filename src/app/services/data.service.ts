@@ -2,7 +2,20 @@ import { Injectable } from '@angular/core';
 import { c2 } from '../mock/collegues.mock';
 import { colleguesTab } from '../mock/matricules.mock';
 import { Collegue } from '../models/Collegues';
+import { HttpClient } from '@angular/common/http';
+import { Observable, Subject } from 'rxjs';
+import { environment } from './../../environments/environment';
+import { map, tap } from 'rxjs/operators';
 
+interface CollegueBack {
+  id: number;
+  matricule: string;
+  nom: string;
+  prenom: string;
+  email: string;
+  dateDeNaissance: string;
+  photoUrl: string;
+}
 
 
 @Injectable({
@@ -10,13 +23,24 @@ import { Collegue } from '../models/Collegues';
 })
 export class DataService {
 
-  constructor() { }
+  private subCollegueSelectionne = new Subject<Collegue>();
 
-  rechercherParNom(nom: string): string[] {
-    return colleguesTab.map(c => c.matricule);
+  constructor(private http: HttpClient) { }
+
+  rechercherParNom(nom: string): Observable<string[]> {
+    return this.http.get<string[]>(`${environment.collegueApiBaseUrl}/collegues?nom=${nom}`);
   }
 
-  recupererCollegueCourant(): Collegue {
-    return c2;
+  recupererCollegueCourant(): Observable<Collegue> {
+    return this.subCollegueSelectionne.asObservable();
+  }
+
+  selectionnerMatricule(matricule: string): Observable<Collegue> {
+    return this.http.get<CollegueBack>(`${environment.collegueApiBaseUrl}/collegues/${matricule}`)
+      .pipe(
+        map(colBack => new Collegue(colBack.matricule, colBack.nom, colBack.prenom, colBack.email,
+          new Date(colBack.dateDeNaissance), colBack.photoUrl)),
+        tap(collegue => this.subCollegueSelectionne.next(collegue))
+      );
   }
 }
