@@ -14,7 +14,6 @@ export class RechercheCollegueParNomComponent implements OnInit {
   matriculeNonTrouve = false;
   erreurTechnique = false;
 
-
   constructor(private dataSrv: DataService) { }
 
   ngOnInit(): void {
@@ -36,11 +35,12 @@ export class RechercheCollegueParNomComponent implements OnInit {
         error => this.erreurTechnique = true);
   }
 
-
   selectionner(matricule: string): void {
     this.dataSrv.selectionnerMatricule(matricule)
       .subscribe(() => { },
         error => this.erreurTechnique = true);
   }
 
+
 }
+

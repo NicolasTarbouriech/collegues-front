@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 // récuperation de l'objet collegueMock
-import { c1, c2} from './mock/collegues.mock';
+import { c1, c2, c3, c4 } from './mock/collegues.mock';
 import { from } from 'rxjs';
 
 @Component({
@@ -12,8 +12,10 @@ import { from } from 'rxjs';
 export class AppComponent {
 
   // propriété collegueMock qui récupère les données de collegueMock
-  collegueExemple = c1;
-  collegueExemple2 = c2;
+  c1 = c1;
+  c2 = c2;
+  c3 = c3;
+  c4 = c4;
 
   title = 'collegues-front';
 }

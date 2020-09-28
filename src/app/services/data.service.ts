@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { c2 } from '../mock/collegues.mock';
-import { colleguesTab } from '../mock/matricules.mock';
+import { c1, c2 } from '../mock/collegues.mock';
 import { Collegue } from '../models/Collegues';
 import { HttpClient } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 import { environment } from './../../environments/environment';
 import { map, tap } from 'rxjs/operators';
+import { CreerCollegueForm } from './../creer-collegue/creer-collegue-form';
 
 interface CollegueBack {
   id: number;
@@ -43,4 +43,14 @@ export class DataService {
         tap(collegue => this.subCollegueSelectionne.next(collegue))
       );
   }
+
+  creerCollegue(col: CreerCollegueForm): Observable<Collegue> {
+    return this.http.post<CollegueBack>(
+      `${environment.collegueApiBaseUrl}/collegues`,
+      col)
+      .pipe(
+        map(colBack => new Collegue(colBack.matricule, colBack.nom, colBack.prenom, colBack.email,
+          new Date(colBack.dateDeNaissance), colBack.photoUrl)));
+  }
+
 }

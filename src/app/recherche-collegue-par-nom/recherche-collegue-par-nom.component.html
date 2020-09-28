@@ -1,21 +1,20 @@
 <div class="row">
-    <div class="col-4">Recherche par nom : </div>
-    <input class="col-3 form-control" type="text" #saisieNom>
-    <button type="button" class="col-3 btn btn-info offset-1" (click)="rechercherCol(saisieNom.value)">Rechercher</button>
-  </div>
-  <div *ngIf="matricules" class="row">
-    <ul>
-      <li *ngFor="let mat of matricules">
-  
-        <button class="btn btn-link" (click)="selectionner(mat)">{{mat}}</button>
-      </li>
-    </ul>
-  </div>
-  
-  <div *ngIf="matriculeNonTrouve" class="alert alert-warning" role="alert">
-    Le nom ne correspond à aucun collègue !
-  </div>
-  <div *ngIf="erreurTechnique" class="alert alert-danger" role="alert">
-    Oopss !!!!!
-  </div>
-  
+  <div class="col-4">Recherche par nom : </div>
+  <input class="col-3 form-control" type="text" #saisieNom>
+  <button type="button" class="col-3 btn btn-info offset-1" (click)="rechercherCol(saisieNom.value)">Rechercher</button>
+</div>
+<div *ngIf="matricules" class="row">
+  <ul>
+    <li *ngFor="let mat of matricules">
+
+      <button class="btn btn-link" (click)="selectionner(mat)">{{mat}}</button>
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="matriculeNonTrouve" class="alert alert-warning" role="alert">
+  Le nom ne correspond à aucun collègue !
+</div>
+<div *ngIf="erreurTechnique" class="alert alert-danger" role="alert">
+  Oopss !!!!!
+</div>
