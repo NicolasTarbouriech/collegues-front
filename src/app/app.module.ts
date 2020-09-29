@@ -8,18 +8,41 @@ import { RechercheCollegueParNomComponent } from './recherche-collegue-par-nom/r
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CreerCollegueComponent } from './creer-collegue/creer-collegue.component';
+import { PageAccueilComponent } from './pages/page-accueil/page-accueil.component';
+import { PageAproposComponent } from './pages/page-apropos/page-apropos.component';
+import { PageCreerCollegueComponent } from './pages/page-creer-collegue/page-creer-collegue.component';
+import { PageGalerieComponent } from './pages/page-galerie/page-galerie.component';
+import { RouterModule, Routes } from '@angular/router';
+import { MenuComponent } from './menu/menu.component';
+
+
+const routes: Routes = [
+  { path: 'accueil', component: PageAccueilComponent },
+  { path: 'galerie', component: PageGalerieComponent },
+  { path: 'apropos', component: PageAproposComponent },
+  { path: 'creer', component: PageCreerCollegueComponent },
+  { path: '', pathMatch: 'full', redirectTo: '/accueil' }
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     CollegueComponent,
     RechercheCollegueParNomComponent,
-    CreerCollegueComponent
+    CreerCollegueComponent,
+    PageAccueilComponent,
+    PageAproposComponent,
+    PageCreerCollegueComponent,
+    PageGalerieComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule, 
+    NgbModule,
+    RouterModule.forRoot(routes)
+
   ],
   providers: [],
   bootstrap: [AppComponent]

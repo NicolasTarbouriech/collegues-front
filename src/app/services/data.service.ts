@@ -17,15 +17,21 @@ interface CollegueBack {
   photoUrl: string;
 }
 
+interface CollegueGalerie {
+  matricule: string;
+  photoUrl: string;
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-
+  
   private subCollegueSelectionne = new Subject<Collegue>();
 
   constructor(private http: HttpClient) { }
+
+ 
 
   rechercherParNom(nom: string): Observable<string[]> {
     return this.http.get<string[]>(`${environment.collegueApiBaseUrl}/collegues?nom=${nom}`);
@@ -52,5 +58,7 @@ export class DataService {
         map(colBack => new Collegue(colBack.matricule, colBack.nom, colBack.prenom, colBack.email,
           new Date(colBack.dateDeNaissance), colBack.photoUrl)));
   }
+
+ 
 
 }
