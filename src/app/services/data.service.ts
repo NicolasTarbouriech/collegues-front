@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { c1, c2 } from '../mock/collegues.mock';
 import { Collegue } from '../models/Collegues';
 import { HttpClient } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 import { environment } from './../../environments/environment';
 import { map, tap } from 'rxjs/operators';
 import { CreerCollegueForm } from './../creer-collegue/creer-collegue-form';
+import { CollegueGalerie } from '../models/CollegueGalerie';
 
 interface CollegueBack {
   id: number;
@@ -17,21 +17,18 @@ interface CollegueBack {
   photoUrl: string;
 }
 
-interface CollegueGalerie {
-  matricule: string;
-  photoUrl: string;
-}
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-  
+
   private subCollegueSelectionne = new Subject<Collegue>();
 
   constructor(private http: HttpClient) { }
 
- 
+
 
   rechercherParNom(nom: string): Observable<string[]> {
     return this.http.get<string[]>(`${environment.collegueApiBaseUrl}/collegues?nom=${nom}`);
@@ -59,6 +56,8 @@ export class DataService {
           new Date(colBack.dateDeNaissance), colBack.photoUrl)));
   }
 
- 
+  AfficherPhotoDesCollegues(): Observable<Collegue> {
+    return this.http.get<Collegue>(`${environment.collegueApiBaseUrl}/collegue`);
+  }
 
 }
