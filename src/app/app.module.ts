@@ -34,7 +34,7 @@ const routes: Routes = [
     PageAproposComponent,
     PageCreerCollegueComponent,
     PageGalerieComponent,
-    MenuComponent
+    MenuComponent,
   ],
   imports: [
     BrowserModule,

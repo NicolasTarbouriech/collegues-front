@@ -60,4 +60,8 @@ export class DataService {
     return this.http.get<Collegue>(`${environment.collegueApiBaseUrl}/collegue`);
   }
 
+  recupererPhotos(): Observable<CollegueGalerie[]> {
+    return this.http.get<CollegueGalerie[]>(`${environment.collegueApiBaseUrl}/all`);
+  }
+
 }

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CollegueGalerie } from 'src/app/models/CollegueGalerie';
-import { Collegue } from 'src/app/models/Collegues';
 import { DataService } from 'src/app/services/data.service';
 
 
@@ -13,14 +12,17 @@ import { DataService } from 'src/app/services/data.service';
 
 export class PageGalerieComponent implements OnInit {
 
-  CollegueGalerieTab : CollegueGalerie [] = [];
+  
+  constructor(private dataServ: DataService) { }
 
-  constructor(private dataSrv: DataService) { }
+  
+  allPhotos: CollegueGalerie[] 
+
 
   ngOnInit(): void {
-    this.dataSrv.AfficherPhotoDesCollegues().subscribe(
-      CollegueGalerie => this.CollegueGalerieTab.push(CollegueGalerie)
-    );
+    this.dataServ.recupererPhotos().subscribe(
+      list=> this.allPhotos = list
+    )
   }
 
 }
