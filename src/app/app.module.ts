@@ -14,6 +14,8 @@ import { PageCreerCollegueComponent } from './pages/page-creer-collegue/page-cre
 import { PageGalerieComponent } from './pages/page-galerie/page-galerie.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MenuComponent } from './menu/menu.component';
+import { GraphiqueComponent } from './graphique/graphique.component';
+import { PageGraphiqueComponent } from './pages/page-graphique/page-graphique.component';
 
 
 const routes: Routes = [
@@ -35,6 +37,8 @@ const routes: Routes = [
     PageCreerCollegueComponent,
     PageGalerieComponent,
     MenuComponent,
+    GraphiqueComponent,
+    PageGraphiqueComponent,
   ],
   imports: [
     BrowserModule,
