@@ -11,7 +11,7 @@ export class GraphiqueComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    Highcharts.chart('camember', this.camember)
+    Highcharts.chart('camember', this.camember);
   } 
 
 public camember: any = {
