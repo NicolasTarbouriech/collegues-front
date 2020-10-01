@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CollegueComponent } from './collegue/collegue.component';
@@ -23,8 +22,10 @@ const routes: Routes = [
   { path: 'galerie', component: PageGalerieComponent },
   { path: 'apropos', component: PageAproposComponent },
   { path: 'creer', component: PageCreerCollegueComponent },
+  { path: 'graphique', compoent: PageGraphiqueComponent},
   { path: '', pathMatch: 'full', redirectTo: '/accueil' }
 ];
+
 
 @NgModule({
   declarations: [
@@ -38,8 +39,9 @@ const routes: Routes = [
     PageGalerieComponent,
     MenuComponent,
     GraphiqueComponent,
-    PageGraphiqueComponent,
+    PageGraphiqueComponent
   ],
+
   imports: [
     BrowserModule,
     HttpClientModule,
