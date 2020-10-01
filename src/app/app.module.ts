@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: 'galerie', component: PageGalerieComponent },
   { path: 'apropos', component: PageAproposComponent },
   { path: 'creer', component: PageCreerCollegueComponent },
-  { path: 'graphique', compoent: PageGraphiqueComponent},
+  { path: 'graphique', component: PageGraphiqueComponent},
   { path: '', pathMatch: 'full', redirectTo: '/accueil' }
 ];
 
