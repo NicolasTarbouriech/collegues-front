@@ -16,7 +16,6 @@ import { MenuComponent } from './menu/menu.component';
 import { GraphiqueComponent } from './graphique/graphique.component';
 import { PageGraphiqueComponent } from './pages/page-graphique/page-graphique.component';
 
-
 const routes: Routes = [
   { path: 'accueil', component: PageAccueilComponent },
   { path: 'galerie', component: PageGalerieComponent },
@@ -25,7 +24,6 @@ const routes: Routes = [
   { path: 'graphique', component: PageGraphiqueComponent},
   { path: '', pathMatch: 'full', redirectTo: '/accueil' }
 ];
-
 
 @NgModule({
   declarations: [
